@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+* Open VSX Registry と Visual Studio Marketplace からのインストール手順および初期設定の流れを README に追記しました。
+
 ## 0.3.1
 
 * 公開者 ID を `Altairu` に設定しました。
