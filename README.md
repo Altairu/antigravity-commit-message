@@ -16,8 +16,27 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 
 ## インストール
 
+### Antigravity IDE または Open VSX 対応エディタからインストール
+
+* エディタの拡張機能ビューを開き、`Copilot CLI Commit Message` または `Altairu.copilot-cli-commit-message` で検索してインストールします。
+* Open VSX Registry のページからも確認できます: https://open-vsx.org/extension/Altairu/copilot-cli-commit-message
+
+### VS Code からインストール
+
+* VS Code の拡張機能ビューで `Altairu.copilot-cli-commit-message` を検索してインストールします。
+* ターミナルからコマンドで入れる場合は `code --install-extension Altairu.copilot-cli-commit-message` を実行します。
+* Visual Studio Marketplace のページからも確認できます: https://marketplace.visualstudio.com/items?itemName=Altairu.copilot-cli-commit-message
+
+### GitHub Releases から VSIX で手動インストール
+
 * GitHub Releases から最新の `.vsix` ファイルをダウンロードします: https://github.com/Altairu/antigravity-commit-message/releases
-* Antigravity IDE または VS Code の拡張機能ビュー右上メニューにある Install from VSIX からダウンロードしたファイルを選択して導入します。
+* エディタの拡張機能ビュー右上メニューにある Install from VSIX からダウンロードしたファイルを選択して導入します。
+
+## 初期設定の流れ
+
+* インストール後、ソースコントロールパネル上部の歯車アイコンを押して専用の設定画面を開きます。
+* 使用するプロバイダーとして GitHub Copilot CLI または OpenAI 互換 API を選び、必要に応じてモデルや API キーを入力します。
+* 画面内の接続テストボタンを押して応答が返ることを確認し、設定を保存するボタンを押して完了です。
 
 ## 前提条件とセットアップ
 

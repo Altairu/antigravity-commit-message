@@ -14,8 +14,27 @@ An extension for Antigravity IDE and VS Code-compatible editors that generates a
 
 ## Installation
 
+### From Antigravity IDE / Open VSX Registry
+
+* Open the Extensions view in Antigravity IDE or any Open VSX-compatible editor, search for `Copilot CLI Commit Message` or `Altairu.copilot-cli-commit-message`, and install it.
+* Open VSX Registry page: https://open-vsx.org/extension/Altairu/copilot-cli-commit-message
+
+### From Visual Studio Marketplace (VS Code)
+
+* Search for `Altairu.copilot-cli-commit-message` in the VS Code Extensions view and click Install.
+* Or install via CLI: `code --install-extension Altairu.copilot-cli-commit-message`
+* Visual Studio Marketplace page: https://marketplace.visualstudio.com/items?itemName=Altairu.copilot-cli-commit-message
+
+### Manual Installation from GitHub Releases (VSIX)
+
 * Download the latest `.vsix` file from GitHub Releases: https://github.com/Altairu/antigravity-commit-message/releases
-* Open the Extensions view in Antigravity IDE or VS Code, click the `...` menu, select `Install from VSIX...`, and choose the downloaded `.vsix` file.
+* Open the Extensions view, click the `...` menu, select `Install from VSIX...`, and choose the downloaded `.vsix` file.
+
+## Quick Start
+
+* Click the gear icon in the Source Control panel title bar to open the dedicated Settings GUI.
+* Choose either `GitHub Copilot CLI` or `OpenAI-Compatible API`, then configure your model or API key.
+* Click `Test Connection with Current Form` to verify connectivity, and click `Save Settings`.
 
 ## Prerequisites & Setup
 
