@@ -53,8 +53,8 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 
 ## 使い方
 
-* ソースコントロールパネル上部のキラキラアイコン、またはコマンドパレットから Copilot CLI でコミットメッセージを生成を実行します。
-* ソースコントロールパネル上部の歯車アイコン、またはコマンドパレットから Copilot CLI Commit の設定を開くを実行すると専用の設定 GUI が開きます。
+* ソースコントロールパネル上部のキラキラアイコン、またはコマンドパレットから `Copilot CLI Commit Message: コミットメッセージを生成` を実行します。
+* ソースコントロールパネル上部の歯車アイコン、またはコマンドパレットから `Copilot CLI Commit Message: 設定を開く` を実行すると専用の設定 GUI が開きます。
 
 ![alt text](images/image-1.png)
 
@@ -86,7 +86,7 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 ## トラブルシューティング
 
 * `No supported model available` が出る場合は、設定画面で Copilot CLI モデル名が `fusion` になっているか確認するか、プロバイダーを OpenAI 互換 API に切り替えてください。
-* 詳細なログは下部パネルの出力タブから `Copilot CLI Commit` を選ぶと確認できます。
+* 詳細なログは下部パネルの出力タブから `Copilot CLI Commit Message` を選ぶと確認できます。
 
 ## 開発とビルド
 

@@ -242,7 +242,7 @@ export class SettingsPanel {
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="${csp}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Copilot CLI Commit Settings</title>
+  <title>Copilot CLI Commit Message Settings</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -578,7 +578,7 @@ export class SettingsPanel {
 
     const DICT = {
       ja: {
-        title: 'Copilot CLI Commit 設定',
+        title: 'Copilot CLI Commit Message 設定',
         subtitle: 'コミットメッセージ生成に使う接続先、出力スタイル、対象差分の範囲をまとめて管理できます。',
         uiLanguageLabel: '表示言語 / UI Language',
         uiLangAuto: 'エディタ設定に合わせる',
@@ -633,7 +633,7 @@ export class SettingsPanel {
         openRawBtn: 'VS Code 標準の設定画面を開く'
       },
       en: {
-        title: 'Copilot CLI Commit Settings',
+        title: 'Copilot CLI Commit Message Settings',
         subtitle: 'Configure the AI backend, commit message style, and diff collection rules in one place.',
         uiLanguageLabel: 'UI Language / 表示言語',
         uiLangAuto: 'Follow Editor Language',

@@ -36,11 +36,13 @@
     "commands": [
       {
         "command": "copilotCliCommit.generate",
+        "category": "%extension.displayName%",
         "title": "%command.generate.title%",
         "icon": "$(sparkle)"
       },
       {
         "command": "copilotCliCommit.openSettings",
+        "category": "%extension.displayName%",
         "title": "%command.openSettings.title%",
         "icon": "$(settings-gear)"
       }

@@ -51,8 +51,8 @@ An extension for Antigravity IDE and VS Code-compatible editors that generates a
 
 ## Usage
 
-* Click the sparkle icon in the Source Control panel or run `Generate Commit Message with Copilot CLI` from the Command Palette.
-* Click the gear icon in the Source Control panel or run `Open Copilot CLI Commit Settings` to open the Settings GUI.
+* Click the sparkle icon in the Source Control panel or run `Copilot CLI Commit Message: Generate Commit Message` from the Command Palette.
+* Click the gear icon in the Source Control panel or run `Copilot CLI Commit Message: Open Settings` to open the Settings GUI.
 
 ## Configuration
 

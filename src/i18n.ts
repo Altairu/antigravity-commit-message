@@ -66,7 +66,7 @@ const JA_MESSAGES: UiMessages = {
   settingsSaved: '設定を保存しました。',
   testRunning: '接続テストを実行しています...',
   testSucceeded: (preview) => `接続に成功しました。応答: ${preview}`,
-  panelTitle: 'Copilot CLI Commit 設定'
+  panelTitle: 'Copilot CLI Commit Message 設定'
 };
 
 const EN_MESSAGES: UiMessages = {
@@ -95,7 +95,7 @@ const EN_MESSAGES: UiMessages = {
   settingsSaved: 'Settings saved.',
   testRunning: 'Testing connection...',
   testSucceeded: (preview) => `Connection succeeded. Reply: ${preview}`,
-  panelTitle: 'Copilot CLI Commit Settings'
+  panelTitle: 'Copilot CLI Commit Message Settings'
 };
 
 /**

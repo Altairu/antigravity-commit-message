@@ -42,7 +42,7 @@ async function showActionableError(
  * 拡張機能のアクティベーション処理
  */
 export function activate(context: vscode.ExtensionContext): void {
-  const outputChannel = vscode.window.createOutputChannel('Copilot CLI Commit');
+  const outputChannel = vscode.window.createOutputChannel('Copilot CLI Commit Message');
 
   const openSettingsCommand = vscode.commands.registerCommand('copilotCliCommit.openSettings', () => {
     SettingsPanel.createOrShow(context, outputChannel);
