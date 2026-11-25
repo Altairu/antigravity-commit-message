@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0
+
+* 正式リリース版です。
+* GitHub Copilot CLI および OpenAI 互換 API からのコミットメッセージ生成、専用設定 GUI、日本語と英語の UI モード、GitHub Actions による自動リリースに対応しています。
+
 ## 0.3.3
 
 * コマンド名、設定パネル、出力チャンネル、README の名称を `Copilot CLI Commit Message` に統一しました。
