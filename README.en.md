@@ -12,6 +12,11 @@ An extension for Antigravity IDE and VS Code-compatible editors that generates a
 * Includes a dedicated Settings GUI panel with instant Japanese / English UI language switching, one-click presets, connection testing, and secure API key storage via VS Code `SecretStorage`.
 * Provides actionable error notifications with one-click buttons to open settings, view logs, or open GitHub Copilot Features settings.
 
+## Installation
+
+* Download the latest `.vsix` file from GitHub Releases: https://github.com/Altairu/antigravity-commit-message/releases
+* Open the Extensions view in Antigravity IDE or VS Code, click the `...` menu, select `Install from VSIX...`, and choose the downloaded `.vsix` file.
+
 ## Prerequisites & Setup
 
 ### Using GitHub Copilot CLI
@@ -57,6 +62,7 @@ An extension for Antigravity IDE and VS Code-compatible editors that generates a
 * Install dependencies: `npm install`
 * Typecheck, build, and test: `npm run typecheck && npm run build && npm test`
 * Package VSIX: `npm run package`
+* Automated GitHub Releases: Push a tag matching `v*` (for example `git tag v0.x.y && git push origin v0.x.y`) to trigger GitHub Actions to run checks, build the `.vsix`, and publish a GitHub Release.
 
 ## License
 

@@ -14,6 +14,11 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 * 専用の設定 GUI 画面を備えており、日本語モードと英語モードの即時切替、プリセット適用、接続テスト、API キーの安全な保存ができます。
 * エラー通知から 設定を開く / ログを見る / GitHub Copilot 設定を開く をワンクリックで呼び出せます。
 
+## インストール
+
+* GitHub Releases から最新の `.vsix` ファイルをダウンロードします: https://github.com/Altairu/antigravity-commit-message/releases
+* Antigravity IDE または VS Code の拡張機能ビュー右上メニューにある Install from VSIX からダウンロードしたファイルを選択して導入します。
+
 ## 前提条件とセットアップ
 
 ### GitHub Copilot CLI を使う場合
@@ -64,6 +69,7 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 * 依存パッケージの導入: `npm install`
 * 型チェックとビルドとテスト: `npm run typecheck && npm run build && npm test`
 * VSIX パッケージの作成: `npm run package`
+* GitHub Releases での自動ビルド: `package.json` のバージョンを更新したうえで `git tag v0.x.y` と `git push origin v0.x.y` を実行すると、GitHub Actions が自動でテスト・ビルド・`.vsix` 添付リリースを作成します。
 
 ## ライセンス
 
