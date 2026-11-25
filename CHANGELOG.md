@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3
+
+* コマンド名、設定パネル、出力チャンネル、README の名称を `Copilot CLI Commit Message` に統一しました。
+
 ## 0.3.2
 
 * Open VSX Registry と Visual Studio Marketplace からのインストール手順および初期設定の流れを README に追記しました。
