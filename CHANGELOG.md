@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+* 公開者 ID を `Altairu` に設定しました。
+* GitHub Actions から Visual Studio Marketplace と Open VSX Registry へ自動公開するリリースフローを追加しました。
+
 ## 0.3.0
 
 * 日本語モードと英語モードの完全対応を追加しました (`copilotCliCommit.uiLanguage` および `package.nls.json` / `package.nls.ja.json`)。
