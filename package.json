@@ -1,0 +1,263 @@
+{
+  "name": "copilot-cli-commit-message",
+  "displayName": "Copilot CLI Commit Message",
+  "description": "%extension.description%",
+  "version": "0.3.0",
+  "publisher": "local",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Altairu/antigravity-commit-message.git"
+  },
+  "homepage": "https://github.com/Altairu/antigravity-commit-message#readme",
+  "bugs": {
+    "url": "https://github.com/Altairu/antigravity-commit-message/issues"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "copilot",
+    "ai",
+    "antigravity",
+    "gemini",
+    "ollama"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilotCliCommit.generate",
+        "title": "%command.generate.title%",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "copilotCliCommit.openSettings",
+        "title": "%command.openSettings.title%",
+        "icon": "$(settings-gear)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "copilotCliCommit.generate",
+          "when": "scmProvider == git",
+          "group": "navigation@1"
+        },
+        {
+          "command": "copilotCliCommit.openSettings",
+          "when": "scmProvider == git",
+          "group": "navigation@2"
+        }
+      ],
+      "scm/sourceControl": [
+        {
+          "command": "copilotCliCommit.generate",
+          "when": "scmProvider == git",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "copilotCliCommit.uiLanguage": {
+          "type": "string",
+          "order": 0,
+          "default": "auto",
+          "enum": [
+            "auto",
+            "ja",
+            "en"
+          ],
+          "enumDescriptions": [
+            "%config.uiLanguage.auto%",
+            "%config.uiLanguage.ja%",
+            "%config.uiLanguage.en%"
+          ],
+          "markdownDescription": "%config.uiLanguage.desc%"
+        },
+        "copilotCliCommit.provider": {
+          "type": "string",
+          "order": 1,
+          "default": "copilot-cli",
+          "enum": [
+            "copilot-cli",
+            "openai-compatible"
+          ],
+          "enumDescriptions": [
+            "%config.provider.copilotCli%",
+            "%config.provider.openaiCompatible%"
+          ],
+          "markdownDescription": "%config.provider.desc%"
+        },
+        "copilotCliCommit.language": {
+          "type": "string",
+          "order": 2,
+          "default": "ja",
+          "enum": [
+            "ja",
+            "en",
+            "auto"
+          ],
+          "enumDescriptions": [
+            "%config.language.ja%",
+            "%config.language.en%",
+            "%config.language.auto%"
+          ],
+          "markdownDescription": "%config.language.desc%"
+        },
+        "copilotCliCommit.style": {
+          "type": "string",
+          "order": 3,
+          "default": "conventional",
+          "enum": [
+            "conventional",
+            "plain"
+          ],
+          "enumDescriptions": [
+            "%config.style.conventional%",
+            "%config.style.plain%"
+          ],
+          "markdownDescription": "%config.style.desc%"
+        },
+        "copilotCliCommit.includeBody": {
+          "type": "boolean",
+          "order": 4,
+          "default": false,
+          "markdownDescription": "%config.includeBody.desc%"
+        },
+        "copilotCliCommit.model": {
+          "type": "string",
+          "order": 5,
+          "default": "fusion",
+          "markdownDescription": "%config.model.desc%"
+        },
+        "copilotCliCommit.reasoningEffort": {
+          "type": "string",
+          "order": 6,
+          "default": "",
+          "enum": [
+            "",
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high"
+          ],
+          "enumDescriptions": [
+            "%config.reasoningEffort.default%",
+            "%config.reasoningEffort.none%",
+            "%config.reasoningEffort.minimal%",
+            "%config.reasoningEffort.low%",
+            "%config.reasoningEffort.medium%",
+            "%config.reasoningEffort.high%"
+          ],
+          "markdownDescription": "%config.reasoningEffort.desc%"
+        },
+        "copilotCliCommit.cliPath": {
+          "type": "string",
+          "order": 7,
+          "default": "copilot",
+          "markdownDescription": "%config.cliPath.desc%"
+        },
+        "copilotCliCommit.apiBaseUrl": {
+          "type": "string",
+          "order": 8,
+          "default": "https://generativelanguage.googleapis.com/v1beta/openai",
+          "markdownDescription": "%config.apiBaseUrl.desc%"
+        },
+        "copilotCliCommit.apiModel": {
+          "type": "string",
+          "order": 9,
+          "default": "gemini-3.5-flash-lite",
+          "markdownDescription": "%config.apiModel.desc%"
+        },
+        "copilotCliCommit.fallbackToUnstaged": {
+          "type": "boolean",
+          "order": 10,
+          "default": true,
+          "markdownDescription": "%config.fallbackToUnstaged.desc%"
+        },
+        "copilotCliCommit.customInstructions": {
+          "type": "string",
+          "order": 11,
+          "default": "",
+          "markdownDescription": "%config.customInstructions.desc%"
+        },
+        "copilotCliCommit.instructionFiles": {
+          "type": "array",
+          "order": 12,
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".github/copilot-instructions.md"
+          ],
+          "markdownDescription": "%config.instructionFiles.desc%"
+        },
+        "copilotCliCommit.recentCommitsCount": {
+          "type": "number",
+          "order": 13,
+          "default": 10,
+          "minimum": 0,
+          "maximum": 50,
+          "markdownDescription": "%config.recentCommitsCount.desc%"
+        },
+        "copilotCliCommit.maxDiffChars": {
+          "type": "number",
+          "order": 14,
+          "default": 24000,
+          "minimum": 1000,
+          "markdownDescription": "%config.maxDiffChars.desc%"
+        },
+        "copilotCliCommit.excludePatterns": {
+          "type": "array",
+          "order": 15,
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "package-lock.json",
+            "yarn.lock",
+            "pnpm-lock.yaml",
+            "Cargo.lock",
+            "poetry.lock",
+            "*.min.js",
+            "*.min.css",
+            "*.map"
+          ],
+          "markdownDescription": "%config.excludePatterns.desc%"
+        },
+        "copilotCliCommit.timeoutSeconds": {
+          "type": "number",
+          "order": 16,
+          "default": 60,
+          "minimum": 5,
+          "markdownDescription": "%config.timeoutSeconds.desc%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=dist/extension.js",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test out-test/test/*.test.js",
+    "package": "npm run build && vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0"
+  }
+}
