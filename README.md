@@ -56,6 +56,11 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 * ソースコントロールパネル上部のキラキラアイコン、またはコマンドパレットから Copilot CLI でコミットメッセージを生成を実行します。
 * ソースコントロールパネル上部の歯車アイコン、またはコマンドパレットから Copilot CLI Commit の設定を開くを実行すると専用の設定 GUI が開きます。
 
+![alt text](images/image-1.png)
+
+![alt text](images/image.png)
+
+
 ## 設定項目一覧
 
 | 設定キー | 説明 | 既定値 |
