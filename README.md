@@ -70,6 +70,7 @@ Antigravity IDE や VS Code 互換エディタ上で、Git の変更差分から
 * 型チェックとビルドとテスト: `npm run typecheck && npm run build && npm test`
 * VSIX パッケージの作成: `npm run package`
 * GitHub Releases での自動ビルド: `package.json` のバージョンを更新したうえで `git tag v0.x.y` と `git push origin v0.x.y` を実行すると、GitHub Actions が自動でテスト・ビルド・`.vsix` 添付リリースを作成します。
+* Marketplace と Open VSX への自動公開: GitHub リポジトリの Secrets に `VSCE_PAT` と `OVSX_PAT` を登録しておくと、タグプッシュ時に Visual Studio Marketplace と Open VSX Registry へも自動で公開されます。事前に `package.json` の `publisher` をご自身の公開者 ID に変更してください。
 
 ## ライセンス
 

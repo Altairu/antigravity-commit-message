@@ -63,6 +63,7 @@ An extension for Antigravity IDE and VS Code-compatible editors that generates a
 * Typecheck, build, and test: `npm run typecheck && npm run build && npm test`
 * Package VSIX: `npm run package`
 * Automated GitHub Releases: Push a tag matching `v*` (for example `git tag v0.x.y && git push origin v0.x.y`) to trigger GitHub Actions to run checks, build the `.vsix`, and publish a GitHub Release.
+* Automated Marketplace & Open VSX Publishing: Add `VSCE_PAT` and `OVSX_PAT` to your GitHub repository Secrets, and update `publisher` in `package.json` to your publisher ID to automatically publish to Visual Studio Marketplace and Open VSX Registry on tag push.
 
 ## License
 
