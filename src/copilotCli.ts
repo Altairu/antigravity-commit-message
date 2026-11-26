@@ -76,6 +76,18 @@ export function classifyCopilotErrorDetail(
 
   const combined = `${stderr}\n${stdout}`.trim();
 
+  if (
+    /is not recognized as an internal or external command/i.test(combined) ||
+    /内部コマンドまたは外部コマンド/.test(combined) ||
+    /command not found/i.test(combined) ||
+    /no such file or directory/i.test(combined)
+  ) {
+    return {
+      kind: 'not_found',
+      message: m.cliNotFound
+    };
+  }
+
   if (/no supported model available/i.test(combined) || /model .* is not available/i.test(combined)) {
     return {
       kind: 'model_unavailable',

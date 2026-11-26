@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { promptAndRunCliInstall } from './cliInstaller';
 import { getApiKey, getExtensionConfig } from './config';
 import { CancelledError, ProviderError, runCopilotCli } from './copilotCli';
 import { collectGitContext, resolveGitRepository } from './git';
@@ -24,12 +25,16 @@ async function showActionableError(
   outputChannel.appendLine(`[ERROR] ${errorMessage}`);
 
   const actions = [m.actionOpenSettings, m.actionViewLogs];
-  if (error instanceof ProviderError && (error.kind === 'model_unavailable' || error.kind === 'auth')) {
+  if (error instanceof ProviderError && error.kind === 'not_found') {
+    actions.unshift(m.actionInstallCli);
+  } else if (error instanceof ProviderError && (error.kind === 'model_unavailable' || error.kind === 'auth')) {
     actions.push(m.actionOpenCopilotSettings);
   }
 
   const picked = await vscode.window.showErrorMessage(errorMessage, ...actions);
-  if (picked === m.actionOpenSettings) {
+  if (picked === m.actionInstallCli) {
+    await promptAndRunCliInstall(lang, outputChannel);
+  } else if (picked === m.actionOpenSettings) {
     SettingsPanel.createOrShow(context, outputChannel);
   } else if (picked === m.actionViewLogs) {
     outputChannel.show(true);
@@ -46,6 +51,12 @@ export function activate(context: vscode.ExtensionContext): void {
 
   const openSettingsCommand = vscode.commands.registerCommand('copilotCliCommit.openSettings', () => {
     SettingsPanel.createOrShow(context, outputChannel);
+  });
+
+  const installCliCommand = vscode.commands.registerCommand('copilotCliCommit.installCli', async () => {
+    const config = getExtensionConfig();
+    const uiLang = resolveUiLanguage(config.uiLanguage, vscode.env.language);
+    await promptAndRunCliInstall(uiLang, outputChannel);
   });
 
   const generateCommand = vscode.commands.registerCommand(
@@ -118,7 +129,7 @@ export function activate(context: vscode.ExtensionContext): void {
     }
   );
 
-  context.subscriptions.push(outputChannel, openSettingsCommand, generateCommand);
+  context.subscriptions.push(outputChannel, openSettingsCommand, installCliCommand, generateCommand);
 }
 
 /**

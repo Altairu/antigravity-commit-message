@@ -3,6 +3,7 @@
   "extension.description": "Generate high-precision Git commit messages from staged or unstaged changes using GitHub Copilot CLI or OpenAI-compatible APIs.",
   "command.generate.title": "Generate Commit Message",
   "command.openSettings.title": "Open Settings",
+  "command.installCli.title": "Install GitHub Copilot CLI",
   "config.title": "Copilot CLI Commit Message",
   "config.uiLanguage.desc": "Display language for extension UI, notifications, and settings panel.",
   "config.uiLanguage.auto": "Follow editor display language",

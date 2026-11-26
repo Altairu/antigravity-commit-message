@@ -45,6 +45,12 @@
         "category": "%extension.displayName%",
         "title": "%command.openSettings.title%",
         "icon": "$(settings-gear)"
+      },
+      {
+        "command": "copilotCliCommit.installCli",
+        "category": "%extension.displayName%",
+        "title": "%command.installCli.title%",
+        "icon": "$(cloud-download)"
       }
     ],
     "menus": {

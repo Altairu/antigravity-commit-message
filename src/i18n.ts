@@ -21,6 +21,9 @@ export interface UiMessages {
   actionOpenSettings: string;
   actionViewLogs: string;
   actionOpenCopilotSettings: string;
+  actionInstallCli: string;
+  installCliPickPlaceholder: string;
+  installCliStarted: (command: string) => string;
   cliNotFound: string;
   modelUnavailable: string;
   cliAuthFailed: string;
@@ -48,6 +51,10 @@ const JA_MESSAGES: UiMessages = {
   actionOpenSettings: '設定を開く',
   actionViewLogs: 'ログを見る',
   actionOpenCopilotSettings: 'GitHub Copilot 設定を開く',
+  actionInstallCli: 'Copilot CLI をインストール',
+  installCliPickPlaceholder: '現在の OS に合わせた GitHub Copilot CLI のインストール方法を選択してください',
+  installCliStarted: (command) =>
+    `ターミナルでインストールを開始しました (${command})。完了後に copilot を実行してログインしてください。`,
   cliNotFound: 'copilot CLI が見つかりません。インストール状態か設定画面の CLI パスを確認してください。',
   modelUnavailable:
     'Copilot CLI で利用可能なモデルが見つかりませんでした。モデル欄を fusion にするか、GitHub の Copilot Features 設定を確認してください。設定画面から OpenAI 互換 API に切り替えることもできます。',
@@ -77,6 +84,10 @@ const EN_MESSAGES: UiMessages = {
   actionOpenSettings: 'Open Settings',
   actionViewLogs: 'View Logs',
   actionOpenCopilotSettings: 'Open GitHub Copilot Settings',
+  actionInstallCli: 'Install Copilot CLI',
+  installCliPickPlaceholder: 'Select how to install GitHub Copilot CLI for your OS',
+  installCliStarted: (command) =>
+    `Started installation in terminal (${command}). After completion, run copilot to sign in.`,
   cliNotFound: 'copilot CLI was not found. Please check your installation or CLI path setting.',
   modelUnavailable:
     'No supported Copilot CLI model was found. Try setting the model to fusion, checking your GitHub Copilot Features settings, or switching to an OpenAI-compatible API.',

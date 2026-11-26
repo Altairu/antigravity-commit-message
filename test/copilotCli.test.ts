@@ -63,6 +63,17 @@ describe('classifyCopilotError', () => {
     assert.match(detail.message, /copilot CLI が見つかりません/);
   });
 
+  it('Windows や POSIX シェルのコマンド未検出エラーを not_found として分類すること', () => {
+    const winDetail = classifyCopilotErrorDetail(
+      "'copilot' is not recognized as an internal or external command,",
+      ''
+    );
+    assert.equal(winDetail.kind, 'not_found');
+
+    const posixDetail = classifyCopilotErrorDetail('sh: 1: copilot: command not found', '');
+    assert.equal(posixDetail.kind, 'not_found');
+  });
+
   it('No supported model available の場合にプラン制限等の詳細案内を返すこと', () => {
     const detail = classifyCopilotErrorDetail('Error: No supported model available', '');
     assert.equal(detail.kind, 'model_unavailable');

@@ -1,5 +1,6 @@
 import * as crypto from 'node:crypto';
 import * as vscode from 'vscode';
+import { promptAndRunCliInstall } from './cliInstaller';
 import { getApiKey, getExtensionConfig, saveExtensionConfig, setApiKey } from './config';
 import { runCopilotCli } from './copilotCli';
 import { getMessages, resolveUiLanguage } from './i18n';
@@ -122,6 +123,12 @@ export class SettingsPanel {
       }
       case 'openCopilotFeatures': {
         await vscode.env.openExternal(vscode.Uri.parse(COPILOT_FEATURES_URL));
+        break;
+      }
+      case 'installCopilotCli': {
+        const config = getExtensionConfig();
+        const uiLang = resolveUiLanguage(config.uiLanguage, vscode.env.language);
+        await promptAndRunCliInstall(uiLang, this.outputChannel);
         break;
       }
       case 'openRawSettings': {
@@ -460,6 +467,7 @@ export class SettingsPanel {
           <input type="text" id="cliPath" placeholder="copilot" />
         </div>
         <div class="actions-row" style="margin-top: 8px;">
+          <button type="button" class="secondary" id="installCopilotCli" data-i18n="installCopilotCli"></button>
           <button type="button" class="secondary" id="openCopilotFeatures" data-i18n="openCopilotFeatures"></button>
         </div>
       </div>
@@ -598,6 +606,7 @@ export class SettingsPanel {
         effortLabel: '推論の深さ',
         effortDefault: '指定しない',
         cliPathLabel: 'Copilot CLI コマンドパス',
+        installCopilotCli: 'Copilot CLI をインストール (OS 別)',
         openCopilotFeatures: 'GitHub Copilot Features 設定をブラウザで開く',
         quickApiLabel: 'よく使う接続先のクイック入力',
         ollamaBtn: 'Ollama ローカル',
@@ -653,6 +662,7 @@ export class SettingsPanel {
         effortLabel: 'Reasoning Effort',
         effortDefault: 'Default',
         cliPathLabel: 'Copilot CLI Command Path',
+        installCopilotCli: 'Install Copilot CLI (by OS)',
         openCopilotFeatures: 'Open GitHub Copilot Features in Browser',
         quickApiLabel: 'Quick Fill Endpoints',
         ollamaBtn: 'Ollama Local',
@@ -850,6 +860,10 @@ export class SettingsPanel {
     el('testConnectionBtn').addEventListener('click', () => {
       showBanner('testBanner', true, DICT[getActiveUiLang()].testRunning);
       vscode.postMessage({ type: 'testConnection', payload: collectPayload() });
+    });
+
+    el('installCopilotCli').addEventListener('click', () => {
+      vscode.postMessage({ type: 'installCopilotCli' });
     });
 
     el('openCopilotFeatures').addEventListener('click', () => {
